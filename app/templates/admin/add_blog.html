@@ -1,0 +1,58 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+    <div class="content-body">
+        <div class="row page-titles mx-0">
+            <div class="col p-md-0">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
+                    <li class="breadcrumb-item active"><a href="{{ url_for('add_blog') }}">Add Blog Post</a></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="container-fluid">
+            <form method="POST" action="{{ url_for('add_blog') }}" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" class="form-control" id="title" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" class="form-control" id="author" name="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="date_posted">Date Posted</label>
+                    <input type="date" class="form-control" id="date_posted" name="date_posted" required>
+                </div>
+                <div class="form-group">
+                    <label for="slug">Slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug" required>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration</label>
+                    <input type="text" class="form-control" id="duration" name="duration" required>
+                </div>
+                <div class="form-group">
+                    <label for="cover_photo">Cover Photo</label>
+                    <input type="file" class="form-control-file" id="cover_photo" name="cover_photo">
+                </div>
+                <div class="form-group">
+                    <label for="categories">Category</label>
+                    <input type="text" class="form-control" id="categories" name="categories" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" name="description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="content">Blog Content</label>
+                    <textarea class="form-control" id="content" name="content" rows="6" ></textarea>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

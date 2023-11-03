@@ -1,0 +1,48 @@
+{% extends "root/base.html" %}
+
+{% block content %}
+
+
+<section class="heading-page header-text" id="top" style="padding-top: 50px; padding-bottom: 0px; margin: 0px; background: url(../static/images/image.png);">
+	
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-7">
+                <div class="card" style="border-radius: 1rem; background: rgba(255, 255, 255, 0.7);">
+                    <div class="row g-0">
+                        <div class="col-md-12 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+                                <form method="POST" action="{{ url_for('admin_login') }}">
+                                    <h5 class="fw-normal mb-4 pb-3" style="letter-spacing: 1px;">Admin Login</h5>
+                                
+                                    <div class="form-outline mb-4">
+                                        <input type="email" id="email" name="email" placeholder="Email Address" class="form-control form-control-lg" />
+                                        <label class="form-label"></label>
+                                    </div>
+                                
+                                    <div class="form-outline mb-4">
+                                        <input type="password" id="password" name="password" placeholder="Password" class="form-control form-control-lg" />
+                                        <label class="form-label"></label>
+                                    </div>
+                                
+                                    <div class="pt-1 mb-4">
+                                        <button class="btn btn-dark btn-lg btn-block" type="submit">Enter Admin Area</button>
+                                    </div>
+                                
+                                    <a class="small text-muted" href="{{ url_for('admin_reset_password') }}">Forgot password?</a>
+                                </form>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+<section class="meetings-page" style="margin: none; padding: 0;" id="meetings">
+
+
+{% endblock %}

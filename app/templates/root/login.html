@@ -1,0 +1,82 @@
+{% extends "root/base.html" %}
+
+
+{% block keywords %} 
+Coding, Software Engineering, Web Development, Python, C, C programming, Javascript, Online web development, Learn tech, Bwave Bwave ICT, Web development training in nigeria, Software development company, Best online training, Best web development, Bwave git, Bwave alx 
+{% endblock %}
+
+{% block description %}
+ Our Courses are Designed just for you! We make learning tech easy. Apply now and get started!
+ Learn coding and tech skills from the comfort of your home. | We create Websites, Mobile Applications, and software solutions. | Learning tech made easy. | Apply to learn From us today | Contact us to bring your dreams to reality. | We'll give you more than we promised!.
+ What is Bwave? Who is Bwave? What is Bwave ict all about?
+ Here are our services: We create Websites like ecommerce website, freelance website, web3, crypto marketplace, portfolio website, business website, Mobile Applications for andriod, and ios, and software solutions. We also teach tech courses like software engineering, web development, video editing, python, javascript. Learning tech made easy with us. Apply to learn From us today. Contact us to bring your dreams to reality. We'll give you more than we promised!.
+ Number one web developmet company in Nigeria. Number one web developmet organisation in Port harcourt. Number one web developmet company in Rivers state.
+ Our Courses are Designed just for you! We make learning tech easy. Sign up now and get started!
+
+{% endblock %}
+
+{% block author %}Bwave ICT{% endblock %}
+
+
+
+{% block title %}
+  Login - Continue your journey
+{% endblock %} 
+
+
+
+{% block content %}
+
+
+<section class="heading-page header-text" id="top" style="padding-top: 50px; padding-bottom: 0px; margin: 0px; background: url(../static/images/meetings-bg.jpg);">
+	
+    <div class="container py-5 h-100">
+        
+		<div class="row d-flex justify-content-center align-items-center h-100">
+		  <div class="col col-xl-10">
+			<div class="card" style="border-radius: 1rem;">
+			  <div class="row g-0">
+				<div class="col-md-6 col-lg-5 d-none d-md-block">
+				  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/img1.webp"
+					alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+				</div>
+				<div class="col-md-6 col-lg-7 d-flex align-items-center">
+				  <div class="card-body p-4 p-lg-5 text-black">
+	
+					<form method="POST" action="{{ url_for('login') }}">
+						<h5 class="fw-normal mb-4 pb-3" style="letter-spacing: 1px;">Welcome back to your account</h5>
+					
+						<div class="form-outline mb-4">
+							<input type="email" id="email" name="email" placeholder="Email Address" class="form-control form-control-lg" />
+							<label class="form-label"></label>
+						</div>
+					
+						<div class="form-outline mb-4">
+							<input type="password" id="form2Example27" name="password" placeholder="Password" class="form-control form-control-lg" />
+							<label class="form-label"></label>
+						</div>
+					
+						<div class="pt-1 mb-4">
+							<button class="btn btn-dark btn-lg btn-block" type="submit">Sign In</button>
+						</div>
+					
+						<a class="small text-muted" href="{{url_for('user_reset_password')}}">Forgot password?</a>
+						<p class="mb-4 pb-lg-2" style="color: #393f81;">Don't have an account? <a href="{{url_for('register_page')}}" style="color: #393f81;">Register here</a></p>
+						<a href="#!" class="small text-muted">Terms of use.</a>
+						<a href="#!" class="small text-muted">Privacy policy</a>
+					</form>
+					
+	
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </div>
+
+
+<section class="meetings-page" style="margin: none; padding: 0;" id="meetings">
+
+
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends "root/base.html" %}
+
+
+{% block keywords %} 
+Coding, Software Engineering, Web Development, Python, C, C programming, Javascript, Online web development, Learn tech, Bwave Bwave ICT, Web development training in nigeria, Software development company, Best online training, Best web development, Bwave git, Bwave alx 
+{% endblock %}
+
+{% block description %}
+<p>Connect with us to dive into the world of tech or enhance your existing skills</p>
+<p>Contact us to: </p>
+<ul>
+    <li>Create stunning websites that stand out.</li>
+    <li>Develop innovative mobile applications.</li>
+    <li>Get expert advice and guidance for all things tech.</li>
+    <li>Learn tech and coding from experienced professionals.</li>
+    <li>Explore tech learning opportunities right here in Nigeria.</li>
+    <li>Unlock the power of online tech education.</li>
+    <li>Opt for personalized one-on-one tech mentoring.</li>
+    
+  </ul>
+  <p>Ready to embark on a tech learning journey? Have questions about learning tech in Port Harcourt or online? Interested in building websites, apps, or seeking general tech consultancy? Get in touch with us today!</p>
+{% endblock %}
+
+{% block author %}Bwave ICT{% endblock %}
+
+
+
+{% block title %}
+  Contact Us - We want to work with you
+{% endblock %} 
+
+
+{% block content %}
+
+
+    <section class="heading-page header-text" id="top" style="background-image: url('../static/images/contact_us.jpg');" >
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h6>We are just a call away. One call away to changing your business</h6>
+              <h2>Contact Us</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-us" id="contact">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-9 align-self-center">
+              <div class="row">
+                <div class="col-lg-12">
+                  <form id="contact" action="#" method="post" role="form">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <h2>We are so eager to work with you</h2>
+                      </div>
+                      <div class="col-lg-4">
+                        <fieldset>
+                          <input name="name" type="text" id="name" placeholder="YOURNAME...*" required="">
+                        </fieldset>
+                      </div>
+                      <div class="col-lg-4">
+                        <fieldset>
+                        <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="YOUR EMAIL..." required="">
+                      </fieldset>
+                      </div>
+                      <div class="col-lg-4">
+                        <fieldset>
+                          <select name="subject" id="subject" required>
+                            <option value="" disabled selected>Select an option...</option>
+                            <option value="I want a website">I want a website</option>
+                            <option value="I want a mobile app">I want a mobile app</option>
+                            <option value="I want to learn tech">I want to learn tech</option>
+                            <option value="General consultancy">General consultancy</option>
+                          </select>
+                        </fieldset>
+                      </div>
+                      
+                      <div class="col-lg-12">
+                        <fieldset>
+                          <textarea name="message" type="text" class="form-control" id="message" placeholder="YOUR MESSAGE..." required=""></textarea>
+                        </fieldset>
+                      </div>
+                      <div class="col-lg-12">
+                        <fieldset>
+                          <button type="submit" id="form-submit" class="button">SEND MESSAGE NOW</button>
+                        </fieldset>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <div class="right-info">
+                <ul>
+                  <li>
+                    <h6>Phone Number</h6>
+                    <span> (+234) 081 4818 5691 </span>
+                  </li>
+                  <li>
+                    <h6>Email Address</h6>
+                    <span>bwaveict@gmail.com</span>
+                  </li>
+                  <li>
+                    <h6>Street Address</h6>
+                    <span>Rivers state ict dept, Aba Road, Port Harcourt, Rivers State</span>
+                  </li>
+                  <li>
+                    <h6>Website</h6>
+                    <span>www.bwaveict.com</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+    
+
+
+
+
+
+    {% endblock %}

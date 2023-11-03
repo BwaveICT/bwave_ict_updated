@@ -1,0 +1,74 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+<div class="content-body">
+    <div class="row page-titles mx-0">
+        <div class="col p-md-0">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item active"><a href="">Edit Course</a></li>
+            </ol>
+        </div>
+    </div>
+    <!-- row -->
+
+    <div class="container-fluid">
+        <h2>Edit Course</h2>
+
+        <form method="POST" action="{{ url_for('edit_course', id=course.id) }}" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{ course.title }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cost">Cost</label>
+                <input type="number" class="form-control" id="cost" name="cost" value="{{ course.cost }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="eligibility">Eligibility</label>
+                <input type="text" class="form-control" id="eligibility" name="eligibility" value="{{ course.eligibility }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Duration</label>
+                <input type="text" class="form-control" id="duration" name="duration" value="{{ course.duration }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="slug">Slug</label>
+                <input type="text" class="form-control" id="slug" name="slug" value="{{ course.slug }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Course Description</label>
+                <textarea class="form-control" id="description" name="description" required>{{ course.description }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="cover_photo">Cover Photo</label>
+                <input type="file" class="form-control-file" id="cover_photo" name="cover_photo">
+            </div>
+
+            <div class="form-group">
+                <label for="course_start_date">Course Start Date</label>
+                <input type="date" class="form-control" id="course_start_date" name="course_start_date" value="{{ course.course_start_date }}" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="deadline_date">Deadline Date</label>
+                <input type="date" class="form-control" id="deadline_date" name="deadline_date" value="{{ course.deadline_date }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="content">Course Content</label>
+                <textarea class="form-control" id="content" name="content" rows="6" required>{{ course.content }}</textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+        </form>
+    </div>
+    <!-- #/ container -->
+</div>
+{% endblock %}

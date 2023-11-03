@@ -1,0 +1,11 @@
+.env
+venv/
+app/templates/admin/quixlab-master/
+app/templates/user/portal-theme-bs5-master/
+tables.py
+remove_tables.py
+mysql.sql
+migrations/
+flask_session/
+__pycache__/
+columns.py

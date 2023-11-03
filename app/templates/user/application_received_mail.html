@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
+</head>
+<body style="text-align: center; margin: 0; padding-top: 10px; padding-bottom: 10px; padding-left: 0; padding-right: 0; -webkit-text-size-adjust: 100%; background-color: #f2f4f6; color: #000000" align="center">
+    <!-- Fallback force center content -->
+    <div style="text-align: center;">
+
+        <!-- Start single column section -->
+        <table align="center" style="text-align: center; vertical-align: top; width: 600px; max-width: 600px; background-color: #ffffff;" width="600">
+            <tbody>
+                <tr>
+                    <td style="width: 596px; vertical-align: top; padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-bottom: 40px;" width="596">
+                        <h1 style="font-size: 20px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 600; text-decoration: none; color: #000000;">Your Application For {{ applicant.course_name }}</h1>
+                        <p style="font-size: 15px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #919293;">Dear {{ applicant.first_name }},</p>
+                        <h3>Thank you for applying for the course '{{ applicant.course_name }}'. Your application has been received and is currently under review. We will notify you once the application process is complete.</h3>
+                        
+                        <p style="font-size: 15px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #919293;">You can explore our services and other courses <a target="_blank" style="text-decoration: underline; color: #000000;" href="{{url_for('services_page', _external=True) }}"><u>BY CLICKING HERE</u></a></p>
+                        
+                        <a href="{{url_for('login', _external=True) }}" target="_blank" style="background-color: #000000; font-size: 15px; line-height: 22px; font-family: 'Helvetica', Arial, sans-serif; font-weight: normal; text-decoration: none; padding: 12px 15px; color: #ffffff; border-radius: 5px; display: inline-block; mso-padding-alt: 0;">
+                            <span style="mso-text-raise: 15pt; color: #ffffff;">Go To Dashboard</span>
+                        </a>
+                        <!-- End button here -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- End single column section -->
+
+        <!-- Start footer -->
+        <table align="center" style="text-align: center; vertical-align: top; width: 600px; max-width: 600px; background-color: #000000;" width="600">
+            <tbody>
+                <tr>
+                    <td style="width: 596px; vertical-align: top; padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-bottom: 30px;" width="596">
+                        <!-- Your inverted logo is here -->
+                        <p>Rivers state ict dept, </p>
+                        <p> Aba Road, Port Harcourt,</p>
+                        <p>Rivers State, Nigeria</p>
+                        <p style="margin-bottom: 0; font-size: 13px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 400; text-decoration: none; color: #ffffff;">
+                            <a target="_blank" style="text-decoration: underline; color: #ffffff;" href="https://bwaveict.com">
+                                www.bwaveict.com
+                            </a>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- End footer -->
+    </div>
+</body>
+</html>

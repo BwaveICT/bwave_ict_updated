@@ -1,0 +1,131 @@
+
+
+{% extends 'admin/base.html' %}
+ 
+
+{% block content %}
+
+        <div class="content-body">
+
+            <div class="row page-titles mx-0">
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{{ url_for('admin_dashboard') }}">Dashboard</a></li>
+                        <li class="breadcrumb-item active"><a href="">View Applications</a></li>
+                    </ol>
+                </div>
+            </div>
+            <!-- row -->
+
+
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                    <!--  -->
+                                    <form class="form-valide" method="POST" action="{{ url_for('admin_view_application', applicant_id=applicant.id) }}">
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-username">Username <span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-username" name="val-username" placeholder="Enter a username.." value="{{ applicant.first_name }} {{ applicant.last_name }}" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-email">Email <span class="text-danger">*</span></label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-email" name="val-email" placeholder="Your valid email.." value="{{ applicant.email }}" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-country">Country <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-country" name="val-country" placeholder="" value="{{ applicant.country }}" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-state">State <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-state" name="val-state" placeholder="" value="{{ applicant.state }}" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-phone_number">Phone / WhatsApp Number <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-phone_number" name="val-phone_number" placeholder="" value="{{ applicant.phone_number }}" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-skills">Technical Skills <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-skills" name="val-skills" placeholder="" value="{{ applicant.skills }}" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-payment_method">Payment Method<span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="val-payment_method" name="val-payment_method" placeholder="" value="{{ applicant.payment_method }}" readonly>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-expectation">Expectations <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input class="form-control" id="val-expectation" name="val-expectation" rows="5" placeholder="" value="{{ applicant.expectation }}">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="val-expectation">Payment Confirmation Upload <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <img src="../../static/{{ applicant.image_path|replace("\\", "/") }}" alt="User Image" width="200">
+                                            </div>
+                                        </div>
+
+                                
+                                        <!-- Admin Action -->
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="admin-action">Admin Action</label>
+                                            <div class="col-lg-6">
+                                                <select class="form-control" id="admin-action" name="admin-action">
+                                                    <option disabled selected>Select an option</option>
+                                                    <option value="accept">Accept Application</option>
+                                                    <option value="reject">Reject Application</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Submit</button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+
+                                    <!--  -->
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+   
+        
+
+        
+{% endblock %}

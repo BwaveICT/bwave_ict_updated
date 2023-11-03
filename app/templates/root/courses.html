@@ -1,0 +1,134 @@
+{% extends "root/base.html" %}
+
+
+{% block keywords %} 
+Coding, Software Engineering, Web Development, Python, C, C programming, Javascript, Online web development, Learn tech, Bwave Bwave ICT, Web development training in nigeria, Software development company, Best online training, Best web development, Bwave git, Bwave alx 
+{% endblock %}
+
+{% block description %}
+Our Courses are Designed just for you! We make learning tech easy. Apply now and get started!
+ Learn coding and tech skills from the comfort of your home. | We create Websites, Mobile Applications, and software solutions. | Learning tech made easy. | Apply to learn From us today | Contact us to bring your dreams to reality. | We'll give you more than we promised!.
+ What is Bwave? Who is Bwave? What is Bwave ict all about?
+ Here are our services: We create Websites like ecommerce website, freelance website, web3, crypto marketplace, portfolio website, business website, Mobile Applications for andriod, and ios, and software solutions. We also teach tech courses like software engineering, web development, video editing, python, javascript. Learning tech made easy with us. Apply to learn From us today. Contact us to bring your dreams to reality. We'll give you more than we promised!.
+ Number one web developmet company in Nigeria. Number one web developmet organisation in Port harcourt. Number one web developmet company in Rivers state.
+ Our Courses are Designed just for you! We make learning tech easy. Sign up now and get started!
+
+{% endblock %}
+
+{% block author %}Bwave ICT{% endblock %}
+
+
+
+{% block title %}
+  Our Courses - Designed Just for you
+{% endblock %} 
+
+
+
+
+{% block content %}
+
+  <section class="heading-page header-text" id="top" style="background-image: url('../static/images/annie-spratt-QckxruozjRg-unsplash.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Our Courses</h2>
+          <h6>Desiged just for you</h6>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meetings-page" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+           
+            <div class="col-lg-12">
+              <div class="row grid">
+                {% if courses %}
+                
+                <div class="col-lg-4 templatemo-item-col all soon">
+                  {% for course in courses %}
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <div class="price">
+                        <span>{{ course.formatted_cost() }}</span>
+                      </div>
+                      <a href="{{ url_for('course', slug=course.slug) }}">
+                        <img src="../../static/{{ course.cover_photo|replace("\\", "/") }}" alt="{{ course.title }}">
+                      </a>
+                    </div>
+                    <div class="down-content">
+                      <div class="date">
+                        <h6>{{ course.duration }}</span></h6>
+                      </div>
+                      <a href="{{ url_for('course', slug=course.slug) }}"><h4>{{ course.title }}</h4></a>
+                      <p>{{ course.description }}</p>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                
+                {% else %}
+
+                <div class="col-lg-4 templatemo-item-col all imp">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <div class="price">
+                        <span>$22.00</span>
+                      </div>
+                      <a href="meeting-details.html"><img src="../static/images/software.png" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                      <div class="date">
+                        <h6>Nov <span>14</span></h6>
+                      </div>
+                      <a href="meeting-details.html"><h4>Online Teaching Techniques</h4></a>
+                      <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 templatemo-item-col all soon">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <div class="price">
+                        <span>$24.00</span>
+                      </div>
+                      <a href="meeting-details.html"><img src="../static/images/software.png" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                      <div class="date">
+                        <h6>Nov <span>16</span></h6>
+                      </div>
+                      <a href="meeting-details.html"><h4>Network Teaching Concept</h4></a>
+                      <p>Morbi in libero blandit lectus<br>cursus ullamcorper.</p>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+            
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="pagination">
+                <ul>
+                    {% if courses.has_prev %}
+                    <li><a href="{{ url_for('courses_page', page=courses.prev_num) }}"><i class="fa fa-angle-left"></i></a></li>
+                    {% endif %}
+                    {% for page_num in courses.iter_pages() %}
+                    <li {% if page_num == courses.page %}class="active"{% endif %}><a href="{{ url_for('courses_page', page=page_num) }}">{{ page_num }}</a></li>
+                    {% endfor %}
+                    {% if courses.has_next %}
+                    <li><a href="{{ url_for('courses_page', page=courses.next_num) }}"><i class="fa fa-angle-right"></i></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endblock %}

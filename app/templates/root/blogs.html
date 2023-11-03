@@ -1,0 +1,212 @@
+{% extends "root/base.html" %}
+
+
+{% block keywords %} 
+Coding, Software Engineering, Web Development, Python, C, C programming, Javascript, Online web development, Learn tech, Bwave Bwave ICT, Web development training in nigeria, Software development company, Best online training, Best web development, Bwave git, Bwave alx 
+{% endblock %}
+
+{% block description %}
+Get latest information about tech, life hacks, bwaveict programs, relevant news on various subjects, and stay Connected to the rest of the world with our blog and blog posts.
+{% endblock %}
+
+{% block author %}Bwave ICT{% endblock %}
+
+
+
+{% block title %}
+  Our Blog - News and events that you may like
+{% endblock %} 
+
+
+{% block content %}
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+
+    <section class="heading-page header-text" id="top" style="background-image: url('../static/images/our_services.jpg');" >
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <h6>Catch all the latest News and tech best practises here</h6>
+              <h2>Our Blog</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    <!-- Banner Ends Here -->
+
+    <section class="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="main-content">
+              <div class="row">
+                <div class="col-lg-8">
+                  <span>Learn Programming for free!</span>
+                  <h4>learn programming for free and at your own pace with Bwave ICT!</h4>
+                </div>
+                <div class="col-lg-4">
+                  <div class="main-button">
+                    <a href="https://www.youtube.com/@BwaveICT?sub_confirmation=1" target="_parent">Start Learning</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="blog-posts grid-system">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-8">
+          
+            <div class="all-blog-posts">     
+              <div class="row">
+                {% if blogs %}  
+
+                {% for blog in blogs %}
+                <div class="col-lg-6">         
+                 
+                  <div class="blog-post">
+                  
+                    <div class="blog-thumb">
+                      <img src="{{ url_for('static', filename='uploads/' + blog.cover_photo) }}" alt="{{ blog.title }}">
+                    </div>
+                    <div class="down-content">
+                      <span>{{ blog.categories }}</span>
+                      <a href="{{ url_for('blog', slug=blog.slug) }}"><h4>{{ blog.title }}</h4></a>
+                      <ul class="post-info">
+                        <li><a href="#">{{ blog.author }}</a></li>
+                        <li><a href="#">{{ blog.date_posted }}</a></li>
+                        <li><a href="#">{{ blog.comments|length }} Comments</a></li>
+
+                      </ul>
+                      <p>{{ blog.description }}</p>
+                      
+                    </div>
+                  
+                  </div>
+                  
+                               
+                </div>
+                {% endfor %}   
+                {% else %}
+
+
+
+
+             
+                <div class="col-lg-6">
+                  <div class="blog-post">
+                    <div class="blog-thumb">
+                      <img src="../../static/images/Blue and Orange Congratulations Graduate Card.png" alt="">
+                    </div>
+                    <div class="down-content">
+                      <span>Programming</span>
+                      <a href="https://youtu.be/rnm03hxwyWQ?si=-rPqKi_SqrlRLb8t"><h4>Journey to graduation Alx Software Engineering</h4></a>
+                      <ul class="post-info">
+                        <li><a href="#">Bwave ICT</a></li>
+                        <li><a href="#">Nov 1st, 2023</a></li>
+                      </ul>
+                      <p>Discover how Bright Daniel overcame all obstacles to complete Alx rigorous Software engineering program.</p>
+                      <div class="post-options">
+                        <div class="row">
+                          <div class="col-lg-12">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="blog-post">
+                    <div class="blog-thumb">
+                      <img src="../../static/images/uofp.png" alt="">
+                    </div>
+                    <div class="down-content">
+                      <span>Programming</span>
+                      <a href="{{url_for('coming_soon')}}"><h4>My university of people experience</h4></a>
+                      <ul class="post-info">
+                        <li><a href="#">Bwave ICT</a></li>
+                        <li><a href="#">Nov 1st, 2023</a></li>
+                      </ul>
+                      <p>See how Bright Daniel learnt computer science from the university of people in the United States as an online student in Nigeria</p>
+                      <div class="post-options">
+                        <div class="row">
+                          <div class="col-lg-12">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="blog-post">
+                    <div class="blog-thumb">
+                      <img src="../../static/images/The_Right_Way_to_learn.jpg" alt="">
+                    </div>
+                    <div class="down-content">
+                      <span>ALX</span>
+                      <a href="https://youtu.be/J_CuXHsD6wM?si=nrpsFjX9uvT9INES"><h4>Learn Programming Not ALX</h4></a>
+                      <ul class="post-info">
+                        <li><a href="#">Bwave ICT</a></li>
+                        <li><a href="#">Nov 1st, 2023</a></li>
+                      </ul>
+                      <p>After Successfully guiding +1000 students through the most difficult phases of ALX program, Tech expert and Software engineer Bright Daniel explains what to do if you find out that keeping up with ALX is difficult for you. Watch this video to learn more </p>
+                      <div class="post-options">
+                        <div class="row">
+                          <div class="col-lg-12">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+         
+          </div>
+
+          <div class="col-lg-4">
+            <div class="sidebar meetings-page">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="sidebar-item recent-posts">
+                    <div class="sidebar-heading">
+                      <h2>Recent Posts</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        {% for blog in recent_posts %}
+                          <li>
+                            <a href="{{ url_for('blog', slug=blog.slug) }}">
+                            <h5>{{ blog.title }}</h5>
+                            <span>{{ blog.date_posted }}</span>
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="meetings-page" style="margin: none; padding: 0;" id="meetings">
+
+
+
+    {% endblock %}

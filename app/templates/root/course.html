@@ -1,0 +1,85 @@
+{% extends "root/base.html" %}
+
+{% block keywords %} 
+Coding, Software Engineering, Web Development, Python, C, C programming, Javascript, Online web development, Learn tech, Bwave Bwave ICT, Web development training in nigeria, Software development company, Best online training, Best web development, Bwave git, Bwave alx 
+{% endblock %}
+
+{% block description %}
+{{ course.description }}
+{% endblock %}
+
+{% block author %}Bwave ICT{% endblock %}
+
+
+
+{% block title %}
+{{ course.title }}
+{% endblock %} 
+
+
+{% block content %}
+
+<section class="heading-page header-text" id="top" style="background-image: url('../../static/{{ course.cover_photo|replace("\\", "/") }}'); background-color: rgba(0, 0, 0, 0.8); background-blend-mode: multiply;">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>{{ course.title }}</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="meetings-page" id="meetings">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="meeting-single-item">
+              <div class="thumb">
+                <div class="price">
+                  <span>{{ course.formatted_cost() }}</span>
+                </div>
+                <div class="date">
+                  <h6>{{ course.duration }}</h6>
+                </div>
+              
+              </div>
+              
+              <div class="down-content">
+                <br> <br>
+                <a href="meeting-details.html"><h4>{{ course.title }}</h4></a>
+               
+                <p class="description">
+                  {{ course.content|safe }} 
+                </p>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="share">
+                      <h5 class="btn btn-warning mb-4">Course Starts:  {{ course.course_start_date.strftime('%d %b, %Y') }}</h5>
+                      
+                      <h5 class="btn btn-warning">Registration Deadline: {{ course.deadline_date.strftime('%d %b, %Y') }}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="main-button-red">
+                {% if course.deadline_date < current_date.date() %}
+                <a href="">Application for this course is Closed</a>
+                {% else %}
+                <a href="{% if current_user.is_authenticated %}{{ url_for('apply_for_course', slug=course.slug) }}{% else %}{{ url_for('register_page') }}{% endif %}">Apply Now</a>
+      
+            
+                {% endif %}
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}
+

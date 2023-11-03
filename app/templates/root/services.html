@@ -1,0 +1,136 @@
+{% extends "root/base.html" %}
+
+
+{% block keywords %} 
+Coding, Software Engineering, Web Development, Python, C, C programming, Javascript, Online web development, Learn tech, Bwave Bwave ICT, Web development training in nigeria, Software development company, Best online training, Best web development, Bwave git, Bwave alx 
+{% endblock %}
+
+{% block description %}
+BwaveICT: Learn coding and tech skills from the comfort of your home.
+What is Bwave? Who is Bwave? What is Bwave ict all about?
+ Here are our services: We create Websites like ecommerce website, freelance website, web3, crypto marketplace, portfolio website, business website, Mobile Applications for andriod, and ios, and software solutions. We also teach tech courses like software engineering, web development, video editing, python, javascript. Learning tech made easy with us. Apply to learn From us today. Contact us to bring your dreams to reality. We'll give you more than we promised!.
+ Number one web developmet company in Nigeria. Number one web developmet organisation in Port harcourt. Number one web developmet company in Rivers state.
+{% endblock %}
+
+{% block author %}Bwave ICT{% endblock %}
+
+
+
+{% block title %}
+ Our Services - Bwave ICT 
+{% endblock %} 
+
+
+
+
+{% block content %}
+
+
+
+<section class="heading-page header-text" id="top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2>Our Services</h2>
+          <h6>We'll give you more than we promised with our top-notch services.</h6>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="meetings-page" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="row grid">
+                <div class="col-lg-4 templatemo-item-col all imp">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <a href="{{url_for('website_page')}}"><img src="../static/images/services-web.jpg" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                    
+                      <a href="{{url_for('website_page')}}"><h4>Web Design And Development</h4></a>
+                      <div class="main-button-red">
+                        <div><a href="{{url_for('website_page')}}">See Details</a></div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 templatemo-item-col all imp">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <a href="{{ url_for('app_page') }}"><img src="../static/images/app dev.webp" alt=""></a>
+                    </div>
+                    <div class="down-content">
+                    
+                      <a href="{{ url_for('app_page') }}"><h4>App Design And Development</h4></a>
+                      <div class="main-button-red">
+                        <div><a href="{{ url_for('app_page') }}">See Details</a></div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- <div class="col-lg-4 templatemo-item-col all imp">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <a href="meeting-details.html"><img src="../static/images/services-video.jpeg" alt="" ></a>
+                    </div>
+                    <div class="down-content">
+                    
+                      <a href="meeting-details.html"><h4>Video Editing And Animation</h4></a>
+                      <div class="main-button-red">
+                        <div class="scroll-to-section"><a href="{{url_for('coming_soon')}}">See Details</a></div>
+                    </div>
+                    </div>
+                  </div>
+                </div> -->
+
+                <div class="col-lg-4 templatemo-item-col all imp">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <a href="{{url_for('coming_soon')}}"><img src="../static/images/services-events.jpg" alt="" ></a>
+                    </div>
+                    <div class="down-content">
+                    
+                      <a href="{{url_for('coming_soon')}}"><h4>Tech Presentations and Guest Apperances</h4></a>
+                      <div class="main-button-red">
+                        <div><a href="{{url_for('coming_soon')}}">See Details</a></div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-lg-4 templatemo-item-col all imp">
+                  <div class="meeting-item">
+                    <div class="thumb">
+                      <a href="{{url_for('coming_soon')}}"><img src="../static/images/services-freelance.jpg" alt="" ></a>
+                    </div>
+                    <div class="down-content">
+                    
+                      <a href="{{url_for('coming_soon')}}"><h4>Freelance Developers For Hire</h4></a>
+                      <div class="main-button-red">
+                        <div><a href="{{url_for('coming_soon')}}">See Details</a></div>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              
+         
+          
+             
+            
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    {% endblock %}

@@ -1,0 +1,147 @@
+{% extends "root/base.html" %}
+
+
+
+{% block description %}
+{{ blog.description }}
+{% endblock %}
+
+{% block author %}{{ blog.author }}{% endblock %}
+
+
+
+{% block title %}
+{{ blog.title }}
+{% endblock %} 
+
+
+
+
+
+{% block content %}
+    <!-- Banner Ends Here -->
+
+
+    <section class="heading-page header-text" id="top" style="background-image: url('../../static/uploads/{{ blog.cover_photo|replace("\\", "/") }}'); background-color: rgba(0, 0, 0, 0.8); background-blend-mode: multiply;" >
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2>{{ blog.title }}</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="blog-posts grid-system">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="all-blog-posts">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="blog-post">
+                   
+                    <div class="down-content">
+                      <span>{{ blog.category }}</span>
+                      <a href="post-details.html"><h4>{{ blog.title }}</h4></a>
+                      <ul class="post-info">
+                        <li><a href="#">{{ blog.author }}</a></li>
+                        <li><a href="#">{{ blog.date_posted }}</a></li>
+                        <li><a href="#">{{ blog.comments|length }} Comments</a></li>
+                      </ul>
+                      <p>
+                        {{ blog.content|safe }} 
+                      </p>
+                     
+
+                    </div>
+                    
+                  </div>
+                </div>
+                <!-- <div class="col-lg-12">
+                  <div class="sidebar-item comments">
+                    <div class="sidebar-heading">
+                      <h2>4 comments</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        <li>
+                          <div class="right-content">
+                            <h4>Charles Kate<span>May 16, 2020</span></h4>
+                            <p>Fusce ornare mollis eros. Duis et diam vitae justo fringilla condimentum eu quis leo. Vestibulum id turpis porttitor sapien facilisis scelerisque. Curabitur a nisl eu lacus convallis eleifend posuere id tellus.</p>
+                          </div>
+                        </li>
+
+                      </ul>
+                    </div>
+                  </div>
+                </div> -->
+                <!-- <div class="col-lg-12">
+                  <div class="sidebar-item submit-comment">
+                    <div class="sidebar-heading">
+                      <h2>Your comment</h2>
+                    </div>
+                    <div class="content">
+                      <form id="comment" action="#" method="post">
+                        <div class="row">
+                          <div class="col-md-6 col-sm-12">
+                            <fieldset>
+                              <input name="name" type="text" id="name" placeholder="Your name" required="">
+                            </fieldset>
+                          </div>
+                          
+                        
+                          <div class="col-lg-12">
+                            <fieldset>
+                              <textarea name="message" rows="6" id="message" placeholder="Type your comment" required=""></textarea>
+                            </fieldset>
+                          </div>
+                          <div class="col-lg-12">
+                            <fieldset>
+                              <button type="submit" id="form-submit" class="main-button">Submit</button>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="sidebar">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="sidebar-item recent-posts">
+                    <div class="sidebar-heading">
+                      <h2>Recent Posts</h2>
+                    </div>
+                    <div class="content">
+                      <ul>
+                        {% for blog in recent_posts %}
+                          <li>
+                            <a href="{{ url_for('blog', slug=blog.slug) }}">
+                            <h5>{{ blog.title }}</h5>
+                            <span>{{ blog.date_posted }}</span>
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="meetings-page" style="margin: none; padding: 0;" id="meetings">
+
+
+{% endblock %}

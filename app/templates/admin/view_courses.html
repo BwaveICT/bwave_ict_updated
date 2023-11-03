@@ -1,0 +1,149 @@
+{% extends 'admin/base.html' %}
+ 
+
+{% block content %}
+
+
+<div class="content-body">
+
+    <div class="container-fluid mt-3">
+        <!-- <div class="row">
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-1">
+                    <div class="card-body"> 
+                        <a href="{{ url_for('add_course') }}">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Add Courses</h2>
+                            <p class="text-white mb-0">Add new courses</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-2">
+                    <div class="card-body">
+                        <a href="{{ url_for('add_blog') }}">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Add Blogs</h2>
+                            <p class="text-white mb-0">Add new blog post</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-3">
+                    <div class="card-body">
+                        <a href="">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Add Admins</h2>
+                            <p class="text-white mb-0">Add new admins</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-4">
+                    <div class="card-body">
+                        <a href="">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Applications</h2>
+                            <p class="text-white mb-0">View existing applications</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-1">
+                    <div class="card-body">
+                        <a href="{{ url_for('edit_courses') }}">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Edit Courses</h2>
+                            <p class="text-white mb-0">Edit existing courses</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-2">
+                    <div class="card-body">
+                        <a href="{{ url_for('edit_blogs') }}">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Edit Blogs</h2>
+                            <p class="text-white mb-0">Edit existing blog post</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-3">
+                    <div class="card-body">
+                        <a href="">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Edit Admins</h2>
+                            <p class="text-white mb-0">Remove exisitng admins</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-4">
+                    <div class="card-body">
+                        <a href="">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Reset Emails</h2>
+                            <p class="text-white mb-0">make changes to student details</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-1">
+                    <div class="card-body">
+                        <a href="">
+                        <div class="d-inline-block">
+                            <h2 class="text-white">Send Messages</h2>
+                            <p class="text-white mb-0">send broadcast messages</p>
+                        </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div> -->
+
+        <div class="row">
+            {% for course in courses %}
+            <div class="col-lg-3 col-sm-6">
+                <div class="card gradient-{{ loop.index|default(1, true) }}">
+                    <div class="card-body">
+                        <a href="{{ url_for('view_applications', course_id=course.id) }}">
+                            <div class="d-inline-block">
+                                <h2 class="text-white">{{ course.title }}</h2>
+                                <p class="text-white mb-0">Course Details</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

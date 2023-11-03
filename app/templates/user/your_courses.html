@@ -1,0 +1,72 @@
+{% extends 'user/base.html' %}
+
+
+{% block content %}
+
+<div class="app-wrapper">
+
+<div class="app-content pt-3 p-md-3 p-lg-4">
+    <div class="container-xl">
+        
+        <div class="row g-3 mb-4 align-items-center justify-content-between">
+            <div class="col-auto">
+                <h1 class="app-page-title mb-0">Your Courses</h1>
+            </div>
+            <div class="col-auto">
+                 <div class="page-utilities">
+                </div>
+            </div>
+        </div>
+        
+        <nav id="courses-table-tab" class="courses-table-tab app-nav-tabs nav shadow-sm flex-column flex-sm-row mb-4">
+            <a class="flex-sm-fill text-sm-center nav-link {% if selected_tab == 'all' %}active{% endif %}" href="{{ url_for('your_courses', status='all') }}">All</a>
+            <a class="flex-sm-fill text-sm-center nav-link {% if selected_tab == 'approved' %}active{% endif %}" href="{{ url_for('your_courses', status='approved') }}">Registered</a>
+            <a class="flex-sm-fill text-sm-center nav-link {% if selected_tab == 'pending' %}active{% endif %}" href="{{ url_for('your_courses', status='pending') }}">Pending</a>
+        </nav>
+        
+        <div class="tab-content" id="orders-table-tab-content">
+            <div class="tab-pane fade show active" id="orders-all" role="tabpanel" aria-labelledby="orders-all-tab">
+                <div class="app-card app-card-orders-table shadow-sm mb-5">
+                    <div class="app-card-body">
+                        <div class="table-responsive">
+                            <table class="table app-table-hover mb-0 text-left">
+                                <thead>
+                                    <tr>
+                                        <th class="cell">Course Name</th>
+                                        <th class="cell">Course Start Date</th>
+                                        <th class="cell">Course Cost</th>
+                                        <th class="cell">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for course in courses %}
+                                    <tr>
+                                        <td class="cell">{{ course.course_name }}</td>
+                                        <td class="cell">
+                                            {{ course.start_date.strftime('%d %b, %Y') if course.start_date else 'N/A' }}
+                                        </td>
+                                        
+                                        <td class="cell">{{ course.course_cost }}</td>
+                                        <td class="cell">
+                                            {% if course.status == 'approved' %}
+                                                <span class="badge bg-success">Registered</span>
+                                            {% elif course.status == 'pending' %}
+                                                <span class="badge bg-warning">{{ course.status }}</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+               
+    </div>
+</div>
+
+
+{% endblock %}

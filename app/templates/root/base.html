@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="keywords" content="{% block keywords %}{% endblock %}">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta name="author" content="{% block author %}{% endblock %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+    <title>
+        {% block title %}
+
+        {% endblock %}
+
+    </title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../../static/images/favicon.ico">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="../../static/css/fontawesome.css">
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="stylesheet" href="../../static/css/blog.css">
+    <link rel="stylesheet" href="../../static/css/owl.css">
+    <link rel="stylesheet" href="../../static/css/lightbox.css">
+    <link rel="stylesheet" href="../../static/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+    <!-- Services Details Styles Links -->
+
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap" rel="stylesheet"> 
+
+
+      <link href="../../static/assets/vendor/aos/aos.css" rel="stylesheet">
+      <link href="../../static/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="../../static/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+      <link href="../../static/assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+      <link href="../../static/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+      <link href="../../static/assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+      <link href="../../static/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+      <link href="../../static/assets/css/style.css" rel="stylesheet">
+
+    <!-- Services Details Styles Links End -->
+
+
+
+
+
+  </head>
+
+<body>
+
+  <!-- Sub Header -->
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-sm-8">
+          <div class="left-content">
+            <p><em> Everything Tech </em> made easy</p>
+          </div>
+        </div>
+        <div class="col-lg-4 col-sm-4">
+          <div class="right-icons">
+            <ul>
+                <li><a href="https://web.facebook.com/profile.php?id=100067124528760"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="https://twitter.com/Ict1Bwave"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="https://www.youtube.com/@BwaveICT"><i class="fa fa-youtube"></i></a></li>
+              <li><a href="https://api.whatsapp.com/send?phone=+234+81+481+85691&text=Hello+b-wave%2C+i+want+to+make+inquiries.+I+saw+your+website+and+I+need+your+services."><i class="fa fa-whatsapp"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+      <div class="container">
+          <div class="row">
+              <div class="col-12">
+                  <nav class="main-nav">
+                      <!-- ***** Logo Start ***** -->
+                      <a href="{{ url_for('home_page') }}" class="logo">
+                        <img src="../../static/images/logo.png" alt="BwaveICT-logo">
+                    </a>
+                      <!-- ***** Logo End ***** -->
+                      <!-- ***** Menu Start ***** -->
+                      <ul class="nav">
+
+                        <!-- get flashed messages start -->
+                        <li>   {% with messages = get_flashed_messages(with_categories=true) %}
+                            {% if messages %}
+                              {% for category, message in messages %}
+                                <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                                  {{ message }}
+                                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                              {% endfor %}
+                            {% endif %}
+                          {% endwith %}
+                          <!-- get flashed messages end -->
+                          </li>
+                          <li ><a href="{{url_for('home_page')}} ">Home</a></li>
+                          <li><a href="{{url_for('services_page')}}">Our Services</a></li>
+                          <li><a href="{{url_for('courses_page')}}">Courses</a></li>
+                          
+                          <li><a href="{{url_for('blog_page')}}">Our Blog</a></li> 
+                          <li><a href="{{url_for('contact_page')}}">Send us a Message</a></li>
+                          <div class="main-button-red">
+                            <div><a href="{{ url_for('login') }}">Sign In</a></div>
+                        </div>
+                      </ul>        
+                      <a class='menu-trigger'>
+                          <span>Menu</span>
+                      </a>
+                      <!-- ***** Menu End ***** -->
+                  </nav>
+              </div>
+          </div>
+      </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+
+{% block content %}
+
+
+{% endblock %}
+
+
+
+
+
+
+<div class="footer">
+    <p>Copyright © 2023 Bwave ICT, All Rights Reserved. 
+        <br><a href="#" target="_parent">Bwave ICT</a> <a href="{{ url_for('admin_login') }}" target="_parent">Admin Area</a></p>
+  </div>
+</section>
+
+<!-- Scripts -->
+
+<!-- Web-dev scripts starts -->
+
+  <!-- Vendor JS Files -->
+  <script src="../../static/assets/vendor/aos/aos.js"></script>
+  <script src="../../static/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../static/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../../static/assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../static/assets/vendor/waypoints/noframework.waypoints.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../../static/assets/js/main.js"></script>
+
+
+  <!-- External js libaries -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<!-- Bootstrap core JavaScript -->
+  <script src="../../static/vendor/jquery/jquery.min.js"></script>
+  <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="../../static/js/isotope.min.js"></script>
+  <script src="../../static/js/owl-carousel.js"></script>
+  <script src="../../static/js/lightbox.js"></script>
+  <script src="../../static/js/tabs.js"></script>
+  <script src="../../static/js/video.js"></script>
+  <script src="../../static/js/slick-slider.js"></script>
+  <script src="../../static/js/custom.js"></script>
+  <script src="../../static/js/popup.js"></script>
+
+
+  <script>
+      //according to loftblog tut
+      $('.nav li:first').addClass('active');
+
+      var showSection = function showSection(section, isAnimate) {
+        var
+        direction = section.replace(/#/, ''),
+        reqSection = $('.section').filter('[data-section="' + direction + '"]'),
+        reqSectionPos = reqSection.offset().top - 0;
+
+        if (isAnimate) {
+          $('body, html').animate({
+            scrollTop: reqSectionPos },
+          800);
+        } else {
+          $('body, html').scrollTop(reqSectionPos);
+        }
+
+      };
+
+      var checkSection = function checkSection() {
+        $('.section').each(function () {
+          var
+          $this = $(this),
+          topEdge = $this.offset().top - 80,
+          bottomEdge = topEdge + $this.height(),
+          wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var
+            currentId = $this.data('section'),
+            reqLink = $('a').filter('[href*=\\#' + currentId + ']');
+            reqLink.closest('li').addClass('active').
+            siblings().removeClass('active');
+          }
+        });
+      };
+
+      $('.main-menu, .responsive-menu, .scroll-to-section').on('click', 'a', function (e) {
+        e.preventDefault();
+        showSection($(this).attr('href'), true);
+      });
+
+      $(window).scroll(function () {
+        checkSection();
+      });
+  </script>
+</body>
+
+</body>
+</html>

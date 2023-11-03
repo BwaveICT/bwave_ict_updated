@@ -1,0 +1,162 @@
+{% extends 'user/application_base.html' %}
+
+{% block content %}
+    
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-11 col-sm-10 col-md-10 col-lg-6 col-xl-5 text-center p-0 mt-3 mb-2">
+            <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
+                <h2 id="heading"> Course Application for {{ course.title }} </h2>
+                <p>Fill all form field to go to next step</p>
+                <p> {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                      {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                          {{ message }}
+                          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}</p>
+
+                <form id="msform"  method="POST" action="{{ url_for('apply_for_course', slug=course.slug) }}" enctype="multipart/form-data">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <li class="active" id="account"><strong>Course Details</strong></li>
+                        <li id="personal"><strong>Personal</strong></li>
+                        <li id="payment"><strong>Payment</strong></li>
+                        <li id="confirm"><strong>Finish</strong></li>
+                    </ul>
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div> <br> <!-- fieldsets -->
+
+                          <fieldset>
+                        <div class="form-card">
+                            <h2 class="fs-title">Course Information:</h2>
+                            <label class="fieldlabels">Course Name: *</label>
+                            <input type="text" name="course_name" placeholder="Course Name" value="{{ course.title }}" readonly />
+                            
+                            <label class="fieldlabels">Course Start Date: *</label>
+                            <input type="text" name="start_date" placeholder="Course Start Date" value="{{ course.course_start_date }}" readonly />
+                            
+                            <label class="fieldlabels">Course Cost: *</label>
+                            <input type="text" name="course_cost" placeholder="Course Cost" value="{{ course.formatted_cost() }}" readonly />
+                            
+                            <label class="fieldlabels">Course Duration: *</label>
+                            <input type="text" name="duration" placeholder="Course Duration" value="{{ course.duration }}" readonly />
+                        </div>
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                    </fieldset> 
+
+                     <fieldset>
+                        <div class="form-card">
+                            <h2 class="fs-title">Personal Information:</h2>
+                            <label class="fieldlabels">First Name: *</label>
+                            <input type="text" name="first_name" placeholder="First Name" value="{{ current_user.first_name }}" required />
+                            
+                            <label class="fieldlabels">Last Name: *</label>
+                            <input type="text" name="last_name" placeholder="Last Name" value="{{ current_user.last_name }}" required />
+                            
+                            <label class="fieldlabels">Email: *</label>
+                            <input type="email" name="email" placeholder="Email" value="{{ current_user.email }}" readonly />
+                            
+                            <label class="fieldlabels">Country: *</label>
+                            <input type="text" name="country" placeholder="Country" required />
+                            
+                            <label class="fieldlabels">State: *</label>
+                            <input type="text" name="state" placeholder="State" required />
+                            
+                            <label class="fieldlabels">Phone / WhatsApp Number: *</label>
+                            <input type="tel" name="phone_number" placeholder="Phone / WhatsApp Number" required />
+                            
+                            <label class="fieldlabels">Technical Skills: *</label>
+                            <select id="skills" name="skills" required>
+                                <option disabled selected>Select an option</option>
+                                <option value="beginner">Beginner</option>
+                                <option value="intermediate">Intermediate</option>
+                            </select>
+
+                            <label for="payment_method">Payment Method:</label>
+                            <select id="payment_method" name="payment_method" required>
+                                <option disabled selected>Select an option</option>
+                                <option value="card">Card Payment</option>
+                                <option value="bank_transfer">Bank Transfer</option>
+                            </select>
+                            
+                            <label class="fieldlabels">Please Tell Us Your Expectations: *</label>
+                            <textarea id="expectation" name="expectation" placeholder="Please tell us your expectation" required></textarea>
+                            
+                           
+                        </div>
+                        <input type="button" name="next" class="next action-button" value="Next" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Upload Proof Of Payment Here:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 3 - 4</h2>
+                                </div>
+                            </div> 
+                            
+                            <label class="fieldlabels">Upload Your Proof of Payment:</label> 
+                            <input type="file" name="pic" accept="image/*" required> 
+                            
+                            <!-- First Text -->
+                            <a href="https://flutterwave.com/pay/kg3bjc8t5fio" target="_blank" class="payment-text"> <span> Click here </span>  to pay using your Debit/Credit Card</a>
+                            
+                            <h2 class="fs-title"></h2>
+
+                            <!-- Second Text -->
+                            <p class="payment-text">Or You can also pay using a direct transfer</p>
+                            <p class="account-details">Account Name: Oghor Victory</p>
+                            <p class="account-details">Bank Name: Access Bank</p>
+                            <p class="account-details">Account Number: 0080563632</p>
+                            </div>
+                            
+                   
+                        <input type="submit" name="next" class="next action-button" value="Submit" />
+                        <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
+                    </fieldset>
+                    
+                                        
+
+                    <fieldset>
+                        <div class="form-card">
+                            <div class="row">
+                                <div class="col-7">
+                                    <h2 class="fs-title">Finish:</h2>
+                                </div>
+                                <div class="col-5">
+                                    <h2 class="steps">Step 4 - 4</h2>
+                                </div>
+                            </div> <br><br>
+                            <h2 class="purple-text text-center"><strong>SUCCESS !</strong></h2> <br>
+                            <div class="row justify-content-center">
+                                <div class="col-3"> <img src="../../static/images/Confirm.png" class="fit-image"> </div>
+                            </div> <br><br>
+                            <div class="row justify-content-center">
+                                <div class="col-7 text-center">
+                                    <h5 class="purple-text text-center">You Have Application was successfully recieved. Check Your Email For More Info.</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+ 
+{% endblock %}

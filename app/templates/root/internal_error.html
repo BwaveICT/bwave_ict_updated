@@ -1,0 +1,44 @@
+
+{% extends 'admin/base.html' %}
+ 
+
+{% block content %}
+
+<div class="login-form-bg h-100">
+    <div class="container h-100">
+        <div class="row justify-content-center h-100">
+            <div class="col-xl-6">
+                <div class="error-content">
+                    <div class="card mb-0">
+                        <div class="card-body text-center">
+                            <h1 class="error-text text-primary">503</h1>
+                            <h4 class="mt-4"><i class="fa fa-thumbs-down text-danger"></i> We are sorry</h4>
+                            <p>This page has been busy for a while, so we decided to let it rest a little</p>
+                            <form class="mt-5 mb-5">
+                                
+                                <div class="text-center mb-4 mt-4"><a href="{{url_for('home_page')}}" class="btn btn-primary">Go to Homepage</a>
+                                </div>
+                            </form>
+                            <div class="text-center">
+                               <p>Reach out to us on this platforms:</p>
+                                <ul class="list-inline">
+                                    <li class="list-inline-item"><a href="https://web.facebook.com/profile.php?id=100067124528760" class="btn btn-facebook"><i class="fa fa-facebook"></i></a>
+                                    </li>
+                                    <li class="list-inline-item"><a href="https://twitter.com/Ict1Bwave" class="btn btn-twitter"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li class="list-inline-item"><a href="https://api.whatsapp.com/send?phone=+234+81+481+85691&text=Hello+b-wave%2C+i+encountered+an+error+while+trying+to+access+your+website.+Please+I+need+your+services." class="btn btn-linkedin"><i class="fa fa-whatsapp"></i></a>
+                                    </li>
+                                    <li class="list-inline-item"><a href="https://www.youtube.com/@BwaveICT" class="btn btn-google-plus"><i class="fa fa-youtube"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

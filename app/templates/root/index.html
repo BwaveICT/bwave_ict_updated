@@ -1,0 +1,560 @@
+{% extends "root/base.html" %}
+
+
+{% block keywords %} 
+Coding, Software Engineering, Web Development, Python, C, C programming, Javascript, Online web development, Learn tech, Bwave Bwave ICT, Web development training in nigeria, Software development company, Best online training, Best web development, Bwave git, Bwave alx, bwave ict, Learn Coding, Software Engineering, Web Development, Python, C Programming, JavaScript, Online Web Development, Tech Learning, Bwave ICT, Web Development Training in Nigeria, Software Development Company, Best Online Training, Top Web Development, Bwave GIT, Bwave ALX
+{% endblock %}
+
+{% block description %}
+BwaveICT: Learn coding and tech skills from the comfort of your home. | We create Websites, Mobile Applications, and software solutions. | Learning tech made easy. | Apply to learn From us today | Contact us to bring your dreams to reality. | We'll give you more than we promised!.
+{% endblock %}
+
+{% block author %}Bwave ICT{% endblock %}
+
+
+
+{% block title %}
+  Bwave ICT - Tech made easy
+{% endblock %} 
+
+
+
+
+{% block content %}
+
+
+  <!-- ***** Main Banner Area Start ***** -->
+  <section class="section main-banner" id="top" data-section="section1">
+      <video autoplay muted loop id="bg-video">
+        <source src="../../static/images/intro.mp4" type="video/mp4" />
+      </video>
+      <div class="video-overlay header-text">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="caption">
+            <h6>We've got a great news to share</h6>
+            <h2>Evreything Tech just got Easier</h2>
+            <div class="main-button-red">
+                <div ><a href="{{url_for('courses_page')}}">Explore Our Services</a>   </div> 
+            </div>
+            
+        </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </section>
+  <!-- ***** Main Banner Area End ***** -->
+
+  <section class="services">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="owl-service-item owl-carousel">
+          
+            <div class="item">
+              <div class="icon">
+                <img src="../static/images/service-icon-01.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Best Curriculum</h4>
+                <p>our programmes are designed to prepare you for a career in the world’s fastest growing industries.</p>
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="icon">
+                <img src="../static/images/service-icon-02.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Best Teachers</h4>
+                <p>Learn from sillicon valley trained Instructors. With several years of experience</p>
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="icon">
+                <img src="../static/images/service-icon-03.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Best Students</h4>
+                <p>Connect with our students, past and present, and together build a future and carrer in tech</p>
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="icon">
+                <img src="../static/images/service-icon-02.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Online Learning</h4>
+                <p>We make Online learning fun. Don't worry about attending physical classes. Our programmes are fully Online</p>
+              </div>
+            </div>
+            
+            <div class="item">
+              <div class="icon">
+                <img src="../static/images/service-icon-03.png" alt="">
+              </div>
+              <div class="down-content">
+                <h4>Internship Opportunities</h4>
+                <p>Get pratical experience by working on real world projects with top Instutions both locally and globally</p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="upcoming-meetings" id="meetings">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>What we offer</h2>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="categories">
+            <h4>Discover Our Tailored Services</h4>
+            <ul>
+                <li><a href="{{url_for('website_page')}}">Website Development that Makes an Impact</a></li>
+                <li><a href="{{ url_for('app_page') }}">Crafting Mobile Apps for Your Vision</a></li>
+                <li><a href="{{url_for('courses_page')}}">Software Engineering Training</a></li>
+                <li><a href="{{url_for('coming_soon')}}">Engaging Public Speaking & Tech Event Presentations</a></li>
+                <li><a href="{{url_for('coming_soon')}}">Unlocking Talent: Interns and Developers for Hire</a></li>
+            </ul>
+            <div class="main-button-red">
+                <a href="{{url_for('services_page')}}">Explore All Services</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            {% if courses %}
+            {% for course in courses %}
+
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>₦{{ course.cost }}</span>
+                  </div>
+                  <a href="{{ url_for('course', slug=course.slug) }}">
+                    <img src="../../static/{{ course.cover_photo|replace("\\", "/") }}" alt="{{ course.title }}">
+                  </a>
+                </div>
+                
+                <div class="down-content">
+                  <div class="date">
+                    <h6>{{ course.duration }}</h6>
+                  </div>
+                  <a href="{{ url_for('course', slug=course.slug) }}"><h4>{{ course.title }}</h4></a>
+                  <p>{{ course.description }}</p>
+                </div>
+              </div>
+              </div>
+
+              {% endfor %}
+              {% else %}
+
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>Free</span>
+                  </div>
+                  <a href="https://youtube.com/playlist?list=PLquE3-nQwzaql53v0wPi_eRNwcMQ49YQC&si=C2gUsROckjGz_iD2"><img src="../../static/images/C_programming.png" alt="C programming playlist Bwave ICT"></a>
+                </div>
+
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Self <span>Paced</span></h6>
+                  </div>
+                  <a href="https://youtube.com/playlist?list=PLquE3-nQwzaql53v0wPi_eRNwcMQ49YQC&si=C2gUsROckjGz_iD2"><h4>Learn C Programming</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>Free</span>
+                  </div>
+                  <a href="https://youtu.be/2fgPebdMCjo?si=OT11AR4TXnnwutxq"><img src="../../static/images/git.png" alt="Git and github for beginners"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Self <span>Paced</span></h6>
+                  </div>
+                  <a href="https://youtu.be/2fgPebdMCjo?si=OT11AR4TXnnwutxq"><h4>Git and Github for beginners</h4></a>
+                  <p>Understand and use git command line as well as Github like a pro software engineer with this full course for complete beginners.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <div class="price">
+                    <span>Free</span>
+                  </div>
+                  <a href="https://youtu.be/UJ8n7Jz9HMc?si=H8ybiUqYNiSmBuWx"><img src="../../static/images/shell.jpg" alt="Shell Navigation Alx"></a>
+                </div>
+                <div class="down-content">
+                  <div class="date">
+                    <h6>Self<span>paced</span></h6>
+                  </div>
+                  <a href="https://youtu.be/UJ8n7Jz9HMc?si=H8ybiUqYNiSmBuWx"><h4>The Linux Shell for beginners</h4></a>
+                  <p>Understand the basics of working with the linux shell. master shell scripting and commands that makes your work as a Software engineer easy.</p>
+                </div>
+              </div>
+            </div>
+            {% endif %}
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </section>
+
+  <section class="apply-now" id="apply">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 align-self-center">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="item">
+                <h3>JOIN OUR TECH PROGRAMS</h3>
+                <p>Unlock your potential in programming, software engineering, and technology. Join our educational programs and take the first step towards a tech-savvy future.</p>
+                <div class="main-button-red">
+                  <div class="scroll-to-section"><a href="{{url_for('courses_page')}}">Join Us Now!</a></div>
+              </div>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div class="item">
+                <h3>BRING YOUR PROJECT TO LIFE</h3>
+                <p>We specialize in building, managing, and revamping projects, websites, apps, and software. Let us turn your ideas into reality. Let's take your business online. Let's reform your social look. Contact us today.</p>
+                <div class="main-button-yellow">
+                  <div class="scroll-to-section"><a href="{{url_for('services_page')}}">Get Started</a></div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="accordions is-first-expanded">
+            <article class="accordion">
+                <div class="accordion-head">
+                    <span>Our strength lies on our simplicity</span>
+                    <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                </div>
+                <div class="accordion-body">
+                    <div class="content">
+                        <p>There are alot of training institutions out there, but we stand out because our methods of teaching are unique. We practicalise and visualise each concept we teach so you can understand the idea, logic and implementations. We dont just teach, we allow you to practise, and asks questions in our live sessions. At BwaveICT, we say if you cant explain it in a simple way, then don't try explaining at all. </p>
+                    </div>
+                </div>
+            </article>
+            <article class="accordion">
+                <div class="accordion-head">
+                    <span>Prepare for live long learning</span>
+                    <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                </div>
+                <div class="accordion-body">
+                    <div class="content">
+                        <p>By completing any of our premium course, you get access to even more courses and live learning sessions. In a nutshell, At Bwave, we make sure you keep learning for live. <br><br>
+                        Learning never ends, and so teaching can never cease. At bwave, we would not cease to teach you everything you need to power your future in tech.</p>
+                    </div>
+                </div>
+            </article>
+            <article class="accordion">
+                <div class="accordion-head">
+                    <span>Internship and job opportunities</span>
+                    <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                </div>
+                <div class="accordion-body">
+                    <div class="content">
+                        <p>We also offer our students the chance to work on real world projects with us and make tremendous progress as they apply the concepts they've learned overtime.<br><br>
+                        During or after Internship, we give update on job opportunities available locally and internationally. More importantly, if you want to start your own brand, mor startup, we would support you in doing so.</p>
+                    </div>
+                </div>
+            </article>
+            <article class="accordion last-accordion">
+                <div class="accordion-head">
+                    <span>What are you waiting for?</span>
+                    <span class="icon">
+                        <i class="icon fa fa-chevron-right"></i>
+                    </span>
+                </div>
+                <div class="accordion-body">
+                    <div class="content">
+                        <p>It's time to take action and start your first steps in what would be a live changing experience for you. Click on the <a href="{{url_for('courses_page')}}"> Courses </a> button now and register for free to access this live changing opportunity. See you on the other side as you explore the courses. </p>
+                    </div>
+                </div>
+            </article>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="our-courses" id="courses">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>Our Students And Clients Have Something To Say</h2>
+          </div>
+        </div>
+        <div class="col-lg-12">
+          <div class="owl-courses-item owl-carousel">
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (1).png" alt="">
+            </div>
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (10).png" alt="">
+            </div>
+          
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (12).png" alt="">
+            </div>
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (2).png" alt="">
+            </div>
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (3).png" alt="">
+            </div>
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (4).png" alt="">
+            </div>
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (5).png" alt="">
+            </div>
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (6).png" alt="">
+            </div>
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (7).png" alt="">
+             
+            </div>
+            <div class="item">
+              <img src="../static/images/Five Star Testimonial Review Instagram Post (8).png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="blog" id="">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading">
+            <h2>Our Blog</h2>
+          </div>
+        </div>
+          <div class="row">
+            {% if blogs %}
+      {% for blog in blogs %}
+        <div class="col-lg-4">
+            <div class="meeting-item">
+                <div class="thumb">
+                    <a href="{{ url_for('blog', slug=blog.slug) }}">
+                     
+                      <img src="../../static/uploads/{{ blog.cover_photo|replace("\\", "/") }}" class="card-img-top" alt="{{ blog.title }}">
+                    </a>
+                </div>
+                <div class="down-content">
+                    <h4>{{ blog.title }}</h4>
+                    <div class="main-button-red">
+                        <div><a href="{{ url_for('blog', slug=blog.slug) }}">Read Story</a></div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+            
+            <div class="col-lg-4">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <a href="https://youtu.be/rnm03hxwyWQ?si=-rPqKi_SqrlRLb8t"><img src="../../static/images/Blue and Orange Congratulations Graduate Card.png" class="card-img-top" alt="Student Training"></a>
+                </div>
+                <div class="down-content">
+                  <h4>Journey to graduation Alx Software Engineering</h4>
+                  <div class="main-button-red">
+                    <div class="scroll-to-section"><a href="https://youtu.be/rnm03hxwyWQ?si=-rPqKi_SqrlRLb8t">Learn More</a></div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <a href="{{url_for('coming_soon')}}"><img src="../../static/images/uofp.png" class="card-img-top" alt="Bright daniel University of people"></a>
+                </div>
+                <div class="down-content">
+                  <h4>My university of people experience</h4>
+                  <div class="main-button-red">
+                    <div class="scroll-to-section"><a href="{{url_for('coming_soon')}}">Learn More</a></div>
+                </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="meeting-item">
+                <div class="thumb">
+                  <a href="https://youtu.be/J_CuXHsD6wM?si=nrpsFjX9uvT9INES"><img src="../../static/images/The_Right_Way_to_learn.jpg" class="card-img-top" alt="Learn Programming"></a>
+                </div>
+                <div class="down-content">
+                  <h4>Learn Programming Not ALX</h4>
+                  <div class="main-button-red">
+                    <div class="scroll-to-section"><a href="https://youtu.be/J_CuXHsD6wM?si=nrpsFjX9uvT9INES">Read Story</a></div>
+                </div>
+                </div>
+              </div>
+            </div>
+          
+         {% endif %}
+            
+          </div>
+      
+      </div>
+    </div>
+  </section> 
+
+
+
+  <section class="our-facts">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="row">
+            <div class="col-lg-12">
+              <h2>A Few Facts About Us</h2>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="count-area-content percentage">
+                    <div class="count-digit">94</div>
+                    <div class="count-title">Successful Students</div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="count-area-content">
+                    <div class="count-digit">45</div>
+                    <div class="count-title">Project Delivered</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-12">
+                  <div class="count-area-content new-students">
+                    <div class="count-digit">+115</div>
+                    <div class="count-title">New Students</div>
+                  </div>
+                </div> 
+                <div class="col-12">
+                  <div class="count-area-content">
+                    <div class="count-digit">4</div>
+                    <div class="count-title">Partners</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        <div class="col-lg-6 align-self-center">
+          <!-- <div class="video">
+            <a href="https://youtu.be/IClEf82GNek?si=1PGnHoQL0PXKzPsx" target="_blank"><img src="../static/images/play-icon.png" alt=""></a>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-us" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9 align-self-center">
+          <div class="row">
+            <div class="col-lg-12">
+              <form id="contact" action="#" method="post" role="form">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h2>It's time to hear from you</h2>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                      <input name="name" type="text" id="name" placeholder="YOURNAME...*" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                    <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="YOUR EMAIL..." required="">
+                  </fieldset>
+                  </div>
+                  <div class="col-lg-4">
+                    <fieldset>
+                      <input name="subject" type="text" id="subject" placeholder="SUBJECT...*" required="">
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <textarea name="message" type="text" class="form-control" id="message" placeholder="YOUR MESSAGE..." required=""></textarea>
+                    </fieldset>
+                  </div>
+                  <div class="col-lg-12">
+                    <fieldset>
+                      <button type="submit" id="form-submit" class="button">SEND MESSAGE NOW</button>
+                    </fieldset>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="right-info">
+            <ul>
+              <li>
+                <h6>Phone Number</h6>
+                <span>+234 81 4818 5691</span>
+              </li>
+              <li>
+                <h6>Email Address</h6>
+                <span>bwaveict@gmail.com</span>
+              </li>
+              <li>
+                <h6>Street Address</h6>
+                <span>Rivers state ict dept, Aba Road, Port Harcourt, Rivers State</span>
+              </li>
+              <li>
+                <h6>Website URL</h6>
+                <span>www.bwaveict.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {% endblock %}
