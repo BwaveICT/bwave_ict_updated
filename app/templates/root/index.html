@@ -141,7 +141,7 @@ BwaveICT: Learn coding and tech skills from the comfort of your home. | We creat
               <div class="meeting-item">
                 <div class="thumb">
                   <div class="price">
-                    <span>₦{{ course.cost }}</span>
+                    <span>{{ course.formatted_cost() }}</span>
                   </div>
                   <a href="{{ url_for('course', slug=course.slug) }}">
                     <img src="../../static/{{ course.cover_photo|replace("\\", "/") }}" alt="{{ course.title }}">
