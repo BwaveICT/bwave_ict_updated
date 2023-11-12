@@ -1,23 +1,30 @@
 from flask import request, flash, render_template, redirect, url_for
-from flask_login import current_user, login_required
+from flask_login import current_user
 from app import app, db, mail
 from app.models.admin import Course
 from app.models.user import Applicant
 import os
 from werkzeug.utils import secure_filename
 from flask_mail import Message
+import time
+import random
+
+def generate_unique_id():
+    # Get the current timestamp
+    current_time = int(time.time() * 1000)  # Multiply by 1000 to get milliseconds
+
+    # Generate a random number between 1000 and 9999
+    random_number = random.randint(1000, 9999)
+
+    # Combine timestamp and random number to create a unique ID
+    unique_id = f"{current_time}{random_number}"
+
+    return unique_id
+
 
 @app.route('/apply_for_course/<slug>', methods=['GET', 'POST'])
-@login_required
 def apply_for_course(slug):
     course = Course.query.filter_by(slug=slug).first()
-    user_id = current_user.id
-
-    existing_application = Applicant.query.filter_by(user_id=user_id, course_id=course.id).first()
-
-    if existing_application:
-        flash('You have already applied for this course. Multiple applications are not allowed.', 'danger')
-        return redirect(url_for('dashboard'))
 
     if request.method == 'POST':
         # Get form data
@@ -27,7 +34,7 @@ def apply_for_course(slug):
         duration = course.duration
         first_name = request.form.get('first_name')
         last_name = request.form.get('last_name')
-        email = current_user.email
+        email = request.form.get('email')
         country = request.form.get('country')
         state = request.form.get('state')
         phone_number = request.form.get('phone_number')
@@ -36,7 +43,7 @@ def apply_for_course(slug):
         expectation = request.form.get('expectation')
 
         # Check for missing values
-        if not all([first_name, last_name, country, state, phone_number, skills, payment_method, expectation]):
+        if not all([first_name, last_name, email, country, state, phone_number, skills, payment_method, expectation]):
             flash('Please fill out all the required fields', 'danger')
             return redirect(request.url)  # Redirect back to the form
 
@@ -52,6 +59,13 @@ def apply_for_course(slug):
             image_path = os.path.join('uploads', filename)
         else:
             image_path = None
+
+        # Check if the user is logged in
+        if current_user.is_authenticated:
+            user_id = current_user.id
+        else:
+            # For users not logged in, generate a unique identifier
+            user_id = generate_unique_id()
 
         # Store other information in the database
         applicant = Applicant(
@@ -69,7 +83,7 @@ def apply_for_course(slug):
             skills=skills,
             payment_method=payment_method,
             expectation=expectation,
-            user_id=current_user.id,
+            user_id=user_id,
             image_path=image_path
         )
 
@@ -79,7 +93,7 @@ def apply_for_course(slug):
         send_email_to_user(applicant)
 
         flash('Application submitted successfully!', 'success')
-        return redirect(url_for('dashboard'))
+        return redirect(url_for('home_page'))
 
     return render_template('user/course_application.html', course=course)
 
@@ -99,4 +113,3 @@ def send_email_to_user(applicant):
     except Exception as e:
         flash('Failed to send email notification. Please check your email settings.', 'danger')
         app.logger.error(str(e))
-

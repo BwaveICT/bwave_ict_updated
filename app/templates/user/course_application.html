@@ -53,14 +53,15 @@
                      <fieldset>
                         <div class="form-card">
                             <h2 class="fs-title">Personal Information:</h2>
+                            
                             <label class="fieldlabels">First Name: *</label>
-                            <input type="text" name="first_name" placeholder="First Name" value="{{ current_user.first_name }}" required />
+                            <input type="text" name="first_name" placeholder="First Name" value="" required />
                             
                             <label class="fieldlabels">Last Name: *</label>
-                            <input type="text" name="last_name" placeholder="Last Name" value="{{ current_user.last_name }}" required />
+                            <input type="text" name="last_name" placeholder="Last Name" value="" required />
                             
                             <label class="fieldlabels">Email: *</label>
-                            <input type="email" name="email" placeholder="Email" value="{{ current_user.email }}" readonly />
+                            <input type="email" name="email" placeholder="Email" value="" />
                             
                             <label class="fieldlabels">Country: *</label>
                             <input type="text" name="country" placeholder="Country" required />
@@ -77,7 +78,7 @@
                                 <option value="beginner">Beginner</option>
                                 <option value="intermediate">Intermediate</option>
                             </select>
-
+                        
                             <label for="payment_method">Payment Method:</label>
                             <select id="payment_method" name="payment_method" required>
                                 <option disabled selected>Select an option</option>
@@ -87,9 +88,8 @@
                             
                             <label class="fieldlabels">Please Tell Us Your Expectations: *</label>
                             <textarea id="expectation" name="expectation" placeholder="Please tell us your expectation" required></textarea>
-                            
-                           
                         </div>
+                        
                         <input type="button" name="next" class="next action-button" value="Next" />
                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                     </fieldset>

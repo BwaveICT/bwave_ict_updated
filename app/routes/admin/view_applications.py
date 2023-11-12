@@ -50,7 +50,7 @@ def admin_view_application(applicant_id):
             if admin_action == 'accept':
                 applicant.status = 'approved'
                 db.session.commit()
-                send_email_to_applicant(applicant, 'Congratulations! Welcome To Bwave ICT', 'user/  application_approved_mail.html')
+                send_email_to_applicant(applicant, 'Congratulations! Welcome To Bwave ICT', 'user/application_approved_mail.html')
             elif admin_action == 'reject':
                 # Delete the application and its associated data from the database
                 db.session.delete(applicant)

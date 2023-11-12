@@ -1,5 +1,7 @@
 from datetime import datetime
 from app import db
+from sqlalchemy import BigInteger
+
 
 class Applicant(db.Model):
     __tablename__ = 'applicants'
@@ -19,7 +21,9 @@ class Applicant(db.Model):
     skills = db.Column(db.String(50), nullable=False)
     payment_method = db.Column(db.String(20), nullable=False)
     expectation = db.Column(db.Text, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    # user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(BigInteger,  nullable=False)
+
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     image_path = db.Column(db.String(255), nullable=True)  
     status = db.Column(db.String(10), default='pending', nullable=False)

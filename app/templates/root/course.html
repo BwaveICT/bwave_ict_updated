@@ -53,6 +53,10 @@ We are best place to learn programming in port harcourt. | We are the best Websi
                
                 <p class="description">
                   {{ course.content|safe }} 
+                  <ul>
+                    <li>j</li>
+                    <li>g</li>
+                  </ul>
                 </p>
                 <div class="row">
                   <div class="col-lg-12">
@@ -71,7 +75,7 @@ We are best place to learn programming in port harcourt. | We are the best Websi
                 {% if course.deadline_date < current_date.date() %}
                 <a href="">Application for this course is Closed</a>
                 {% else %}
-                <a href="{% if current_user.is_authenticated %}{{ url_for('apply_for_course', slug=course.slug) }}{% else %}{{ url_for('register_page') }}{% endif %}">Apply Now</a>
+                <a href="{{ url_for('apply_for_course', slug=course.slug) }}">Apply Now</a>
       
             
                 {% endif %}
