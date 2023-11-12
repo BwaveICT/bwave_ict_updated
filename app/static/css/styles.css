@@ -1664,7 +1664,7 @@ section.meetings-page .pagination ul li a:hover {
   border-bottom: 1px solid #eee;
 }
 
-.meeting-single-item .down-content p.description img {
+.meeting-single-item .down-content p.description img, iframe {
   max-width: 100%; /* Ensures images don't exceed the container width */
   height: auto; /* Maintains the aspect ratio while resizing */
 }
