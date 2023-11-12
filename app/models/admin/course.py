@@ -31,15 +31,21 @@ class Course(db.Model):
         self.deadline_date = datetime.strptime(deadline_date, "%Y-%m-%d").date()
 
 
-    def formatted_cost(self):
-        # Set the locale to en_NG (Nigerian Naira)
-        locale.setlocale(locale.LC_ALL, 'en_NG.UTF-8')
+    # def formatted_cost(self):
+    #     # Set the locale to en_NG (Nigerian Naira)
+    #     locale.setlocale(locale.LC_ALL, 'en_NG.UTF-8')
         
-        # Format the cost as currency with NGN symbol, but without decimal places
-        formatted_cost = locale.currency(self.cost, symbol=True, grouping=True)
+    #     # Format the cost as currency with NGN symbol, but without decimal places
+    #     formatted_cost = locale.currency(self.cost, symbol=True, grouping=True)
         
-        # Remove the decimal places if they exist
-        if formatted_cost.endswith(".00"):
-            formatted_cost = formatted_cost[:-3]
+    #     # Remove the decimal places if they exist
+    #     if formatted_cost.endswith(".00"):
+    #         formatted_cost = formatted_cost[:-3]
+
+    #     return formatted_cost
+
+    def formatted_cost(self, currency_symbol='₦', decimal_places=2):
+        # Format the cost using the specified currency symbol and decimal places
+        formatted_cost = f"{currency_symbol}{self.cost:,.{decimal_places}f}"
 
         return formatted_cost
